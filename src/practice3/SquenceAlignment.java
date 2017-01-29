@@ -11,14 +11,17 @@ public class SquenceAlignment {
 		System.out.println("Minimum Cost is "+ alignment(args[0], args[1]));
 	}
 
+	//calc optimal alignment by DynamicPrograming
 	private static int alignment(String x, String y){
-		int[][] opt = new int[x.length()+1][y.length()+1];
-		for(int i = 0;i <= x.length();i++) opt[i][0] = delta*i;
-		for(int j = 0;j <= y.length();j++) opt[0][j] = delta*j;
+		int m = x.length();
+		int n = y.length();
+		int[][] opt = new int[m+1][n+1];
+		for(int i = 0;i <= m;i++) opt[i][0] = delta*i;
+		for(int j = 0;j <= n;j++) opt[0][j] = delta*j;
 
 		int mismatch = alpha;
-		for(int i = 1;i <= x.length();i++){
-			for(int j = 1;j <= y.length();j++){
+		for(int i = 1;i <= m;i++){
+			for(int j = 1;j <= n;j++){
 				mismatch = (x.charAt(i-1) == y.charAt(j-1))? 0: alpha;
 				int cost1 = mismatch + opt[i-1][j-1];
 				int cost2 = delta + opt[i-1][j];
@@ -27,6 +30,6 @@ public class SquenceAlignment {
 				opt[i][j] = Math.min(cost3, opt[i][j]);
 			}
 		}
-		return(opt[x.length()][y.length()]);
+		return(opt[m][n]);
 	}
 }
