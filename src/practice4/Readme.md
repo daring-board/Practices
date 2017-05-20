@@ -9,7 +9,9 @@
 > 　ここで、特別な2点s,t∈Vを考える。これらの一つのグラフG_iのs-tパスPに対して  
 > Pに含まれる辺の本数をPの長さと定義し、
 
-```math
-\left( \sum_{k=1}^n a_k b_k \right)^{!!2} \leq
-\left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-```
+$$
+\begin{eqnarray}
+4a &=& ((a+a)+a)+a \\
+   &=& (a+a)+(a+a)
+\end{eqnarray}
+$$
